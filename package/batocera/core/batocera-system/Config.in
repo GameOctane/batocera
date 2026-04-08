@@ -616,6 +616,7 @@ config BR2_TARGET_BATOCERA_IMAGES_DEFINITIONS
 	default "allwinner/h3/orangepi-pc allwinner/h3/orangepi-one allwinner/h3/orangepi-plus2e allwinner/h3/bananapi-m2-zero allwinner/h3/cha" \
 													if BR2_PACKAGE_BATOCERA_TARGET_H3
 	default "allwinner/t527/orangepi-4a"    if BR2_PACKAGE_BATOCERA_TARGET_T527
+	default "allwinner/a733/cubie-a7s"      if BR2_PACKAGE_BATOCERA_TARGET_A733
 
 	choice
 	prompt "batocera.linux target"
@@ -708,6 +709,9 @@ config BR2_PACKAGE_BATOCERA_TARGET_H700
 
 config BR2_PACKAGE_BATOCERA_TARGET_T527
 	bool "t527"
+
+config BR2_PACKAGE_BATOCERA_TARGET_A733
+	bool "a733"
 
 # PC
 # ------------------------------------

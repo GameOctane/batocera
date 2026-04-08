@@ -7,7 +7,6 @@
 ECWOLF_VERSION = d1de69a576d4bb39e89124185a6dfd6991202cb9
 ECWOLF_SITE = https://bitbucket.org/ecwolf/ecwolf.git
 ECWOLF_SITE_METHOD=git
-ECWOLF_GIT_SUBMODULES=YES
 ECWOLF_LICENSE = Non-commercial
 ECWOLF_DEPENDENCIES = host-ecwolf sdl2 sdl2_mixer sdl2_net zlib bzip2 jpeg
 ECWOLF_SUPPORTS_IN_SOURCE_BUILD = NO
@@ -29,8 +28,8 @@ ECWOLF_CONF_OPTS += -DCMAKE_BUILD_TYPE=Release \
 					-DIMPORT_EXECUTABLES="$(HOST_ECWOLF_BUILDDIR)/ImportExecutables.cmake" \
 					-DFORCE_CROSSCOMPILE=ON \
 					-DINTERNAL_JPEG=ON \
-					-DINTERNAL_SDL_NET=ON \
-					-DINTERNAL_SDL_MIXER=ON
+					-DINTERNAL_SDL_NET=OFF \
+					-DINTERNAL_SDL_MIXER=OFF
 
 # Copy the headers that are usually generated on the target machine
 # but must be provided when cross-compiling.

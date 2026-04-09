@@ -28,12 +28,8 @@ ECWOLF_CONF_OPTS += -DCMAKE_BUILD_TYPE=Release \
 					-DIMPORT_EXECUTABLES="$(HOST_ECWOLF_BUILDDIR)/ImportExecutables.cmake" \
 					-DFORCE_CROSSCOMPILE=ON \
 					-DINTERNAL_JPEG=ON \
-					-DINTERNAL_SDL_NET=OFF \
-					-DINTERNAL_SDL_MIXER=OFF \
-					-DSDL2_NET_LIBRARY=$(STAGING_DIR)/usr/lib/libSDL2_net.so \
-					-DSDL2_NET_INCLUDE_DIR=$(STAGING_DIR)/usr/include/SDL2 \
-					-DSDL2_MIXER_LIBRARY=$(STAGING_DIR)/usr/lib/libSDL2_mixer.so \
-					-DSDL2_MIXER_INCLUDE_DIR=$(STAGING_DIR)/usr/include/SDL2
+					-DINTERNAL_SDL_NET=ON \
+					-DINTERNAL_SDL_MIXER=ON
 
 # Copy the headers that are usually generated on the target machine
 # but must be provided when cross-compiling.

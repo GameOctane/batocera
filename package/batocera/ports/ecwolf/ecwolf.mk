@@ -8,7 +8,7 @@ ECWOLF_VERSION = d1de69a576d4bb39e89124185a6dfd6991202cb9
 ECWOLF_SITE = https://bitbucket.org/ecwolf/ecwolf.git
 ECWOLF_SITE_METHOD=git
 ECWOLF_LICENSE = Non-commercial
-ECWOLF_DEPENDENCIES = host-ecwolf sdl2 sdl2_mixer sdl2_net zlib bzip2 jpeg
+ECWOLF_DEPENDENCIES = host-ecwolf sdl2 zlib bzip2 jpeg
 ECWOLF_SUPPORTS_IN_SOURCE_BUILD = NO
 ECWOLF_EMULATOR_INFO = ecwolf.emulator.yml
 

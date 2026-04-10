@@ -50,6 +50,20 @@ endef
 
 ECWOLF_POST_CONFIGURE_HOOKS += ECWOLF_COPY_GENERATED_HEADERS
 
+# The staged sdl2_net/sdl2_mixer cmake configs have hardcoded absolute target
+# paths (e.g. IMPORTED_LOCATION "/usr/lib/libSDL2_net.so") which make can't
+# satisfy on the build host. Rewrite them to point at the staging dir before
+# ecwolf's cmake configure runs.
+define ECWOLF_FIX_SDL_CMAKE_IMPORTED_PATHS
+	for d in SDL2_net SDL2_mixer; do \
+		find $(STAGING_DIR)/usr/lib/cmake/$$d -name "*.cmake" 2>/dev/null | \
+		while IFS= read -r f; do \
+			sed -i 's|IMPORTED_LOCATION\([_A-Z]*\) "/usr/lib/|IMPORTED_LOCATION\1 "$(STAGING_DIR)/usr/lib/|g' "$$f"; \
+		done; \
+	done
+endef
+ECWOLF_PRE_CONFIGURE_HOOKS += ECWOLF_FIX_SDL_CMAKE_IMPORTED_PATHS
+
 define ECWOLF_INSTALL_TARGET_CMDS
 	mkdir -p $(TARGET_DIR)/usr/bin
 	mkdir -p $(TARGET_DIR)/usr/share/ecwolf

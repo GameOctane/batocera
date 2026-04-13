@@ -4,11 +4,13 @@
 #
 ################################################################################
 # Version: 2024-05-20
-# Pre-packaged source tarball (includes private SDL submodules) courtesy of
-# suckbluefrog (https://github.com/suckbluefrog/Batocera-Multilib)
-ECWOLF_VERSION = 7-4-2026
-ECWOLF_SITE = https://github.com/suckbluefrog/Batocera-Multilib/releases/download/7-4-2026
-ECWOLF_SOURCE = ecwolf-source.tar.gz
+ECWOLF_VERSION = d1de69a576d4bb39e89124185a6dfd6991202cb9
+ECWOLF_SITE = https://bitbucket.org/ecwolf/ecwolf.git
+ECWOLF_SITE_METHOD = git
+# Submodules include the private SDL forks; CI pre-seeds dl/ecwolf/ with a
+# cached buildroot git tarball (courtesy suckbluefrog/Batocera-Multilib) so
+# the Bitbucket clone is never actually attempted.
+ECWOLF_GIT_SUBMODULES = YES
 ECWOLF_LICENSE = Non-commercial
 ECWOLF_DEPENDENCIES = host-ecwolf sdl2 sdl2_mixer sdl2_net zlib bzip2 jpeg
 ECWOLF_SUPPORTS_IN_SOURCE_BUILD = NO

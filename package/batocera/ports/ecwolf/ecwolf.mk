@@ -31,8 +31,8 @@ ECWOLF_CONF_OPTS += -DCMAKE_BUILD_TYPE=Release \
 					-DINTERNAL_JPEG=ON \
 					-DINTERNAL_SDL_NET=ON \
 					-DINTERNAL_SDL_MIXER=ON \
-					-DSDL2_LIBRARY=$(STAGING_DIR)/usr/lib/libSDL2.so \
-					-DSDL2_INCLUDE_DIR=$(STAGING_DIR)/usr/include/SDL2
+					-DSDL2_LIBRARY=/usr/lib/libSDL2.so \
+					-DSDL2_INCLUDE_DIR=/usr/include/SDL2
 
 # Copy the headers that are usually generated on the target machine
 # but must be provided when cross-compiling.

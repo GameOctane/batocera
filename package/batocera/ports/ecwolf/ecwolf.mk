@@ -29,7 +29,8 @@ ECWOLF_CONF_OPTS += -DCMAKE_BUILD_TYPE=Release \
 					-DFORCE_CROSSCOMPILE=ON \
 					-DINTERNAL_JPEG=ON \
 					-DINTERNAL_SDL_NET=ON \
-					-DINTERNAL_SDL_MIXER=ON
+					-DINTERNAL_SDL_MIXER=ON \
+					-DSDL2MIXER_MOD=OFF
 
 # Copy the headers that are usually generated on the target machine
 # but must be provided when cross-compiling.

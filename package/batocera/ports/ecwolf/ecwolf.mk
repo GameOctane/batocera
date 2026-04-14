@@ -55,17 +55,6 @@ endef
 
 ECWOLF_POST_CONFIGURE_HOOKS += ECWOLF_COPY_GENERATED_HEADERS
 
-# cmake bakes IMPORTED_LOCATION "/usr/lib/libSDL2_net.so" from the staged
-# cmake config into the generated build.make/link.txt files. Those paths
-# don't exist on the build host, so make fails with "No rule to make target".
-# Patch the generated files after configure to use the staging dir paths.
-define ECWOLF_FIX_SDL_LINK_PATHS
-	find $(ECWOLF_BUILDDIR) \( -name "build.make" -o -name "link.txt" \) \
-		-exec grep -ql "libSDL2" {} \; \
-		-exec sed -i "s|/usr/lib/libSDL2|$(STAGING_DIR)/usr/lib/libSDL2|g" {} \;
-endef
-ECWOLF_POST_CONFIGURE_HOOKS += ECWOLF_FIX_SDL_LINK_PATHS
-
 define ECWOLF_INSTALL_TARGET_CMDS
 	mkdir -p $(TARGET_DIR)/usr/bin
 	mkdir -p $(TARGET_DIR)/usr/share/ecwolf

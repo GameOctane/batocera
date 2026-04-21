@@ -13,4 +13,8 @@ CARGO_C_LICENSE_FILES = LICENSE
 
 HOST_CARGO_C_DEPENDENCIES = host-pkgconf host-rustc host-openssl
 
+# cargo-util@0.2.28 declares MSRV 1.93 but compiles fine on 1.92;
+# bypass the resolver's early MSRV gate without changing dependency versions.
+HOST_CARGO_C_CARGO_BUILD_OPTS = --ignore-rust-version
+
 $(eval $(host-cargo-package))
